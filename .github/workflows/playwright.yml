@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     env:
-      PASSWORD: ${{ MY_SUPER_SECRET_PASSWORD2 }}
+      PASSWORD: ${{ MY_SUPER_SECRET_PASSWORD }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
