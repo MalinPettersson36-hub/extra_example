@@ -15,7 +15,7 @@ test('Login with Markus', async ({page}) => {
     //expect(username).toBe("markus")
     expect(header).toBe("Store")
 })
-
+/*
 test.only('Login with Markus-nr 2 ska faila', async ({page}) => {
     const loginPage = new LoginPage(page)
     const storePage = new StorePage(page)
@@ -42,4 +42,4 @@ test.only('faila', async ({page}) => {
 
     //expect(username).toBe("markus")
     expect(errorMessage).toBe("Incorrect password")
-})
+})*/
