@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+/*import { Page, Locator } from '@playwright/test';
  
 export class StudentPage {
     readonly page: Page;
@@ -43,3 +43,4 @@ export class StudentPage {
         await deleteButton.click();
     }
 }
+    */

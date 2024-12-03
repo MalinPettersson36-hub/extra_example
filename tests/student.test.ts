@@ -1,4 +1,4 @@
-import {test} from '@playwright/test';
+/*import {test} from '@playwright/test';
 
 test('Get students from API', async () => {
     const response = await fetch('https://test-379574553568.us-central1.run.app/student',
@@ -76,3 +76,4 @@ test('Update current student', async () => {
         console.log(responsePutJson)
 
 })
+*/

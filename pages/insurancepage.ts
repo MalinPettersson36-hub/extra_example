@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+/*import { expect, Locator, Page } from '@playwright/test';
 
 export class InsurancePage {
     readonly page: Page;
@@ -45,6 +45,7 @@ export class InsurancePage {
     async goto() {
         await this.page.goto('https://hoff.is/insurance');
     }
+        */
 /*
     async fillInsuranceForm(firstName: string, lastName: string, address: string, size: string, adults: string, kids: string) {
         await this.firstNameInput.fill(firstName);
@@ -55,7 +56,7 @@ export class InsurancePage {
         await this.kidsInput.fill(kids);
     }
 */
-    async calculatePrice() {
+ /*   async calculatePrice() {
         await this.calculateButton.click();
     }
 
@@ -64,4 +65,4 @@ export class InsurancePage {
         await expect(this.yearlyPrice).toContainText(expectedYearly);
     }
 }
-
+*/

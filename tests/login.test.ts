@@ -6,13 +6,13 @@ let password: string
 test('Login with Markus', async ({page}) => {
     const loginPage = new LoginPage(page)
     const storePage = new StorePage(page)
-    if (process.env.PASSWORD !== undefined){
+    /*if (process.env.PASSWORD !== undefined){
         password = process.env.PASSWORD
-    }
+    }*/
     
 
     await page.goto("http://hoff.is/login")
-    loginPage.login("Markus",password, 'consumer')
+    loginPage.login("Markus","sup3rs3cr3t", 'consumer')
     //const username = await storePage.usernameText.textContent()
     const header = await storePage.header.textContent()
 

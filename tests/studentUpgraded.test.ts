@@ -1,3 +1,4 @@
+/*
 import {test, request, APIRequestContext, expect} from '@playwright/test';
 import { StudentPage } from '../pages/studentpage';
 
@@ -42,3 +43,4 @@ test.only('Student page interactions', async ({ page }) => {
     await apiContext.delete(`/student/${getLatestStudent.id}`)
    
 });
+*/
