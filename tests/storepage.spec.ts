@@ -1,36 +1,52 @@
 import { test, expect } from '@playwright/test';
 import { StorePage } from '../pages/storepage';
+import { FinalizePurchasePage } from '../pages/finalizepurchasepage';
 
 test.describe('Store Page Tests', () => {
   let storePage: StorePage;
+  let finalizePurchasePage: FinalizePurchasePage;
 
   test.beforeEach(async ({ page }) => {
     storePage = new StorePage(page);
+    finalizePurchasePage = new FinalizePurchasePage(page);
     await storePage.navigateTo();
   });
-/*
-  // Test 1: Verify page loads with correct query parameters
-  test('Verify page loads with correct query parameters', async () => {
-    await storePage.verifyUsernameVisible();
-    await storePage.verifyRoleVisible();
-  });
-*/
-  // Test 2: Verify specific store item is displayed and clickable
-  test('Verify specific store item is displayed and clickable', async () => {
-    //const productName = 'Product A'; // Replace with actual product name
-    await storePage.clickProduct();
+
+  
+  test('Add first product to cart,verify sum and buy the product', async () => {
+    
+    //Välj första produkten
+    await storePage.chooseFirstProduct();
+
+    //Lägg varan i shoppingbagen
     await storePage.addToCart();
 
-    // Verify totalSum for choosen product
-    await storePage.verifyTotalSum('12'); // Example cart count
+    // Verifiera totalsumman för vald product
+    await storePage.verifyTotalSum('12'); 
+
+    //Köp produkten
+    await storePage.buyProduct();
+
+     // Vänta på att det modala fönstret ska visas
+     await finalizePurchasePage.waitForModal();
+
+     // Fyll i formuläret i det modala fönstret
+    await finalizePurchasePage.fillForm({ name: 'Malin', address: 'Gatan 12' });
+
+    // Bekräfta köpet
+    await finalizePurchasePage.closeModal()
+
+    // Vänta på att det modala fönstret ska visas
+    await finalizePurchasePage.waitForModal();
+
+    //Bekräfta summan i det modala fönstret
+    await finalizePurchasePage.verifyReceiptGrandTotal('$12')
+
+    //Stäng det modala fönstret
+    await finalizePurchasePage.closeModal()
+
+    //Verifiera att pengar har dragits
+    await storePage.verifySaldo('9988')
   });
-/*
-  // Test 3: Add an item to the cart and verify
-  test('Add item to cart and verify', async () => {
-    const productName = 'Product A'; // Replace with actual product name
-    await storePage.addToCart(productName);
-    await storePage.verifyCartItemVisible(productName);
-    await storePage.verifyCartCount('1'); // Example cart count
-  });
-  */
+
 });

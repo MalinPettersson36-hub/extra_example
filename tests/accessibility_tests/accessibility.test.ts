@@ -1,4 +1,3 @@
-//import { StorePage } from '../../pages/storepage'
 import {expect, test} from '@playwright/test';
 import { AxeBuilder } from '@axe-core/playwright';
 
@@ -12,5 +11,5 @@ test('Accessibility scan for login page', async ({ page }, testInfo) => {
         contentType: 'application/json'
     });
 
-    expect(accessibilityScanResults.violations).toEqual([]);
+    expect(accessibilityScanResults.violations, `Expected no accessibility violations, but found ${accessibilityScanResults.violations.length}. See attached results for details.`).toEqual([]);
 })
