@@ -1,4 +1,6 @@
 name: Playwright Tests
+env:
+      PASSWORD: ${{ secrets.NEW_SUPER_SECRET_PASSWORD }}
 on:
   push:
     branches: [ main, master ]

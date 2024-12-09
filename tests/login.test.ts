@@ -1,7 +1,9 @@
 import { expect, test } from "@playwright/test"
 import { LoginPage } from "../pages/loginpage"
 import { StorePage } from "../pages/storepage"
+import dotenv from 'dotenv';
 
+dotenv.config();
 let password: string
 test('Login with Markus and verify Storepage can be reached', async ({page}) => {
     const loginPage = new LoginPage(page)
@@ -12,8 +14,8 @@ test('Login with Markus and verify Storepage can be reached', async ({page}) => 
     }
     
     await page.goto("http://hoff.is/login")
-    //Password blev undefined. Fick inte miljövariabeln att fungera.
-    loginPage.login("Markus","sup3rs3cr3t", 'consumer')
+    
+    loginPage.login("Markus",password, 'consumer')
     
     const header = await storePage.header.textContent()
     
