@@ -1,7 +1,7 @@
 import {expect, test} from '@playwright/test';
 import { AxeBuilder } from '@axe-core/playwright';
 //Failar, men det ska det göra
-test.skip('Accessibility scan for login page', async ({ page }, testInfo) => {
+test('Accessibility scan for login page', async ({ page }, testInfo) => {
     await page.goto('https://hoff.is/login/');
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
